@@ -1,3 +1,5 @@
+import htmlEmail from './htmlEmail.js';
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -13,9 +15,6 @@ app.post('/mensagem', (req, res) => {
 	const email = req.body.email;
 	const mensagem = req.body.mensagem;
 
-// console.log(`email: ${email}\nmensagem: ${mensagem}`);
-// console.log(`env email: ${process.env.EMAIL}\nenv senha: ${process.env.SENHA}`);
-
 	const transport = nodemailer.createTransport({
         host: 'smtp.office365.com',
         port: 587,
@@ -25,7 +24,7 @@ app.post('/mensagem', (req, res) => {
             pass: process.env.SENHA
         }
 	});
-	const emailCliente = `mensagem recebida`;
+	const emailCliente = htmlEmail();
 	const dadosEmail = {
 		from: `enviado de <${process.env.EMAIL}>`,
 		to: email,
