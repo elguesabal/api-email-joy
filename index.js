@@ -35,8 +35,8 @@ app.post('/mensagem', (req, res) => {
 	};
 
 	transport.sendMail(dadosEmail)
-	.then((resposta) => res.send(`mensagem enviada`))
-	.catch((erro) => res.send(`mensagem nao enviada`))
+	.then((resposta) => res.send(`<h1>mensagem enviada</h1> <p>Clique <a href="https://elguesabal.github.io/trabalho-em-grupo-joy/src/contato">neste link<a> para voltar a página</p>`))
+	.catch((erro) => res.send(`<h1>mensagem nao enviada</h1> <p>Clique <a href="https://elguesabal.github.io/trabalho-em-grupo-joy/src/contato">neste link<a> para voltar a página</p>`))
 });
 
 
