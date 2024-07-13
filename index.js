@@ -49,7 +49,7 @@ app.post('/mensagem', (req, res) => {
 });
 
 
-app.get('/teste', (req, res) => {
+app.post('/teste', (req, res) => {
 	res.send("respondido");
 });
 
