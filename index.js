@@ -51,7 +51,7 @@ app.post('/mensagem', (req, res) => {
 
 app.post('/teste', (req, res) => {
 	// res.send("respondido");
-	res.json({ status: "ok" });
+	res.json({ aaa: "ok" });
 });
 
 
