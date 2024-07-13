@@ -2,12 +2,14 @@ import express from "express";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import htmlEmail from './htmlEmail.js';
+import cors from "cors";
 import {emails, resetEmail} from './saveEmail.js'
 
 const app = express();
 dotenv.config();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cors());
 
 let requests = {"count": 0, "email": ""};
 
