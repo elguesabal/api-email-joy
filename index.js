@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
-import htmlEmail from './htmlEmail.js';
+import htmlEmail from "./htmlEmail.js";
 import cors from "cors";
-import {emails, resetEmail} from './saveEmail.js'
+import {emails, resetEmail} from "./saveEmail.js";
 
 const app = express();
 dotenv.config();
@@ -47,6 +47,12 @@ app.post('/mensagem', (req, res) => {
 	.then((resposta) => res.send(`<h1>mensagem enviada</h1> <p>Clique <a href="https://elguesabal.github.io/trabalho-em-grupo-joy/src/contato">neste link<a> para voltar a página</p>`))
 	.catch((erro) => res.send(`<h1>mensagem nao enviada</h1> <p>Clique <a href="https://elguesabal.github.io/trabalho-em-grupo-joy/src/contato">neste link<a> para voltar a página</p>`))
 });
+
+
+app.get('/teste', (req, res) => {
+	res.send("respondido");
+});
+
 
 const port = 3000
 app.listen(process.env.PORT || port, () => console.log(`servidor rodando na porta ${port}`), console.log(`acesse o link http://localhost:${port}`))
