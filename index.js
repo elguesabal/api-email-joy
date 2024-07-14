@@ -44,16 +44,16 @@ app.post('/mensagem', (req, res) => {
 		text: `Agradeço o contato e em breve estarei respondendo!`
 	};
 	transport.sendMail(dadosEmail)
-	.then((resposta) => res.send(`<h1>mensagem enviada</h1> <p>Clique <a href="https://elguesabal.github.io/trabalho-em-grupo-joy/src/contato">neste link<a> para voltar a página</p>`))
-	.catch((erro) => res.send(`<h1>mensagem nao enviada</h1> <p>Clique <a href="https://elguesabal.github.io/trabalho-em-grupo-joy/src/contato">neste link<a> para voltar a página</p>`))
+	.then((resposta) => res.status(200).send("sucess"))
+	.catch((erro) => res.status(500).send("error"));
 });
 
 
 app.post('/teste', (req, res) => {
 	if (req.mensagem != '') {
-		res.status(200).send("enviado");
+		res.status(200).send("sucess");
 	} else {
-		res.status(500).send("nao enviado");
+		res.status(500).send("error");
 	}
 });
 
