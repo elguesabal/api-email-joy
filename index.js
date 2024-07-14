@@ -50,7 +50,11 @@ app.post('/mensagem', (req, res) => {
 
 
 app.post('/teste', (req, res) => {
-	res.status(200);
+	if (req.mensagem == '') {
+		res.status(200);
+	} else {
+		res.status(500);
+	}
 });
 
 
