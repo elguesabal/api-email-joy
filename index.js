@@ -51,9 +51,9 @@ app.post('/mensagem', (req, res) => {
 
 app.post('/teste', (req, res) => {
 	if (req.mensagem == '') {
-		res.status(200);
+		res.status(200).send("enviado");
 	} else {
-		res.status(500);
+		res.status(500).send("nao enviado");
 	}
 });
 
