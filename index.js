@@ -36,12 +36,12 @@ app.post('/mensagem', (req, res) => {
 	});
 	const emailCliente = htmlEmail();
 	const dadosEmail = {
-		from: `enviado de <${process.env.EMAIL}>`,
+		from: `RECOM`,
 		to: email,
 		replyTo: mensagem,
-		subject: 'Obrigado por me enviar uma mensagem!',
+		subject: 'Obrigado por enviar uma mensagem!',
 		html: emailCliente,
-		text: `Agradeço o contato e em breve estarei respondendo!`
+		text: `Agradeço o contato e em breve estaremos respondendo!`
 	};
 	transport.sendMail(dadosEmail)
 	.then((resposta) => res.status(200).send("sucess"))
@@ -50,7 +50,7 @@ app.post('/mensagem', (req, res) => {
 
 
 app.post('/teste', (req, res) => {
-	if (req.mensagem != '') {
+	if (req.mensagem != undefined) {
 		res.status(200).send("sucess");
 	} else {
 		res.status(500).send("error");
