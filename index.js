@@ -48,17 +48,5 @@ app.post('/mensagem', (req, res) => {
 	.catch((error) => res.status(500).send("error"))
 });
 
-
-app.post('/teste', (req, res) => {
-	if (req.body.email != false && req.body.mensagem != false) {
-		console.log("sucess")
-		res.status(200).send("sucess");
-	} else {
-		console.log("error")
-		res.status(500).send("error");
-	}
-});
-
-
 const port = 3000
 app.listen(process.env.PORT || port, () => console.log(`servidor rodando na porta ${port}`), console.log(`acesse o link http://localhost:${port}`))
