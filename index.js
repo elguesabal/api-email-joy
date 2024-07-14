@@ -36,7 +36,7 @@ app.post('/mensagem', (req, res) => {
 	});
 	const emailCliente = htmlEmail();
 	const dadosEmail = {
-		from: `RECOM`,
+		from: `RECOM ${process.env.EMAIL}`,
 		to: email,
 		replyTo: mensagem,
 		subject: 'Obrigado por enviar uma mensagem!',
@@ -44,15 +44,17 @@ app.post('/mensagem', (req, res) => {
 		text: `Agradeço o contato e em breve estaremos respondendo!`
 	};
 	transport.sendMail(dadosEmail)
-	.then((resposta) => res.status(200).send("sucess"))
-	.catch((erro) => res.status(500).send("error"));
+	.then((response) => res.status(200).send("sucess"))
+	.catch((error) => res.status(500).send("error"))
 });
 
 
 app.post('/teste', (req, res) => {
-	if (req.mensagem != undefined) {
+	if (req.body.email != false && req.body.mensagem != false) {
+		console.log("sucess")
 		res.status(200).send("sucess");
 	} else {
+		console.log("error")
 		res.status(500).send("error");
 	}
 });
